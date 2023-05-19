@@ -1,0 +1,49 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey there
+
+  - intent: goodbye
+    examples: |
+      - Goodbye
+      - Bye
+      - See you later
+
+  - intent: weather
+    examples: |
+      - What's the weather like?
+      - Tell me the weather forecast
+      - What's the weather today?
+      - what is the temperature today
+      - how's the weather today
+      - i want to know the temperature
+
+  - intent: weather_for_location
+    examples: |
+      - What's the weather like in [New York](location)?
+      - Weather in [London](location)
+      - How's the weather in [Paris](location)?
+      - what is the weather in [Dhaka](location)
+      - what is the weather in [New Delhi](location)
+      - weather of [Mumbai] (location)
+      - Today's weather in [Bangalore](location)
+      - [Rajshahi](location) weather
+      - Tell me weather of [Hyderabad](location)
+      - Can you tell me weather of [London](location)
+
+  - intent: thanks
+    examples: |
+      - Thank you
+      - Thanks a lot
+      - Appreciate it
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?

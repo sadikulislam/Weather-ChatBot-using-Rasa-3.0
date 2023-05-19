@@ -1,0 +1,34 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - weather
+  - weather_for_location
+  - thanks
+  - bot_challenge
+
+entities:
+  - location
+
+slots:
+  location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+
+responses:
+  utter_greet:
+    - text: "Hey!"
+  utter_goodbye:
+    - text: "Goodbye! Have a nice day."
+  utter_ask_location:
+    - text: "Sure, in what city?"
+  utter_weather_info:
+    - text: "The current weather in [location] is [weather] with a temperature of [temperature]°C."
+  utter_welcome:
+    - text: "You're welcome!"
+
+actions:
+  - action_get_weather

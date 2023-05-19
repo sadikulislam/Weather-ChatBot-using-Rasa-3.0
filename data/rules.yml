@@ -1,0 +1,28 @@
+version: "3.0"
+
+rules:
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Respond to greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Weather inquiry
+    steps:
+      - intent: weather
+      - action: utter_ask_location
+
+  - rule: Weather for location
+    steps:
+      - intent: weather_for_location
+      - action: action_get_weather
+      - action: utter_weather_info
+
+  - rule: Express gratitude
+    steps:
+      - intent: thanks
+      - action: utter_welcome
