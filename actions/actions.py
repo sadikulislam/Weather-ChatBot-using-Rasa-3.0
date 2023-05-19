@@ -12,22 +12,21 @@ class ActionGetWeather(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        location = tracker.get_slot("location")
+        loc = tracker.get_slot("location")
         api_key = "9a38206167d8d178536e85d9830b2c9b"  # Replace with your OpenWeatherMap API key
 
-        url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={loc}&appid={api_key}"
         response = requests.get(url)
         data = response.json()
-
-        if response.status_code == 200 and "weather" in data and "main" in data["weather"][0]:
-            weather = data["weather"][0]["main"]
-            temperature = data["main"]["temp"]
-            temperature = round(temperature - 273.15, 2)  # Convert temperature from Kelvin to Celsius
-
-            weather_info = f"The current weather in {location} is {weather} with a temperature of {temperature}°C."
-        else:
-            weather_info = f"Sorry, I couldn't retrieve the weather information for {location}."
-
-        dispatcher.utter_message(text=weather_info)
-
-        return []
+        print(data)
+        country = data['sys']['country']
+        city = data['name']
+        condition = data['weather'][0]['main']
+        temperature = data['main']['temp']
+        temperature = round(temperature - 273.15, 2)  # Convert temperature from Kelvin to Celsius
+        humidity = data['main']['humidity']
+        wind = data['wind']['speed']
+        response = f"It is currently {condition} in {city} at the moment." \
+                   f"The temperature is {temperature}°C, the humidity is {humidity}% and the wind speed is {wind} mph."
+        dispatcher.utter_message(response)
+        return [SlotSet('location', loc)]

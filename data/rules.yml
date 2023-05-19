@@ -19,8 +19,8 @@ rules:
   - rule: Weather for location
     steps:
       - intent: weather_for_location
-      - action: action_get_weather
       - action: utter_weather_info
+      - action: action_get_weather
 
   - rule: Express gratitude
     steps:

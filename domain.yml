@@ -26,7 +26,7 @@ responses:
   utter_ask_location:
     - text: "Sure, in what city?"
   utter_weather_info:
-    - text: "The current weather in [location] is [weather] with a temperature of [temperature]°C."
+    - text: "Ok, getting weather of [city] ..."
   utter_welcome:
     - text: "You're welcome!"
 
