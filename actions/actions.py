@@ -18,7 +18,7 @@ class ActionGetWeather(Action):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={loc}&appid={api_key}"
         response = requests.get(url)
         data = response.json()
-        print(data)
+
         country = data['sys']['country']
         city = data['name']
         condition = data['weather'][0]['main']
@@ -29,4 +29,4 @@ class ActionGetWeather(Action):
         response = f"It is currently {condition} in {city} at the moment." \
                    f"The temperature is {temperature}°C, the humidity is {humidity}% and the wind speed is {wind} mph."
         dispatcher.utter_message(response)
-        return [SlotSet('location', loc)]
+        return [SlotSet('location', city)]
