@@ -26,7 +26,7 @@ responses:
   utter_ask_location:
     - text: "Sure, in what city?"
   utter_weather_info:
-    - text: "Ok, getting weather of [city] ..."
+    - text: "Ok, getting weather ..."
   utter_welcome:
     - text: "You're welcome!"
   utter_iamabot:
